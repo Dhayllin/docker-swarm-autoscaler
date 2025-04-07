@@ -1,0 +1,12 @@
+version: "3.8"
+
+services:
+  autoscaler:
+    image: autoscaler:latest
+    deploy:
+      mode: replicated
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
